@@ -59,6 +59,8 @@ function handleImageUpload(event) {
 // ✅ 이미지 예측 함수
 // ---------------------------
 const x = document.getElementById("result");
+let lognum = 0;
+
 
 async function predict(imageElement) {
     // 모델로 이미지 예측 수행
@@ -71,17 +73,23 @@ async function predict(imageElement) {
             (prediction[i].probability * 100).toFixed(2) + "%"; // 확률을 소수점 둘째 자리까지 표시
         labelContainer.childNodes[i].innerHTML = classPrediction;
     }
+    const node = document.createElement("li");
+    lognum++;
 
     if (prediction[0].probability > prediction[1].probability){ 
         x.innerHTML = "신선!";
         x.style.color = "#1be600ff";
         x.style.fontWeight = "bold";
         x.style.fontSize = "24px";
+        node.innerHTML = lognum + ". " + "신선 - " + (prediction[0].probability * 100).toFixed(2) + "%";
+        document.getElementById("logul").appendChild(node);
     } else {
         x.innerHTML = "상함!";
         x.style.color = "red";
         x.style.fontWeight = "bold";
         x.style.fontSize = "24px";
+        node.innerHTML = lognum + ". " + "상함- " + (prediction[1].probability * 100).toFixed(2) + "%";
+        document.getElementById("logul").appendChild(node);
     }
 }
 
