@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pet Mood</title>
+
+   <link rel="stylesheet" href="mystyle.css"> 
+
+</head>
+<body>
+<div class="main">
+    <header>
+    <h1>과일 신선도 판별기</h1>
+    <p class="introduce">과일 이미지를 넣으면 과일의 신선도를 판별해줍니다!</p>
+    <p id="clock"></p>
+    <div class="line"></div>
+    </header>
+
+    <div class="content">
+    <!-- 이미지 업로드를 위한 파일 입력 필드 -->
+     <div class="upload">
+    <p id="imagebtn">이미지 선택<input type="file" id="imageInput" accept="image/*"></p>
+    </div>
+
+    <!-- 업로드된 이미지를 미리보기로 표시할 영역 -->
+    <div id="preview">
+        <img src="intro.png" id="uploadedImage" alt="Uploaded Image">
+    </div>
+     <br>
+    <!-- 모델의 예측 결과를 표시할 영역 -->
+     <div id="result">사진을 넣어주세요.</div>
+    <div id="label-container"></div>
+    <div class="line"></div>
+
+
+    <!-- TensorFlow.js 및 Teachable Machine 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+    <!-- 모델 및 예측 관련 스크립트 -->
+    <script type="text/javascript" src="myjs.js"></script>
+    </div>
+
+
+
+    <footer id="name">
+        <p id="info">학번: 20224964 이름: 김시준</p>
+    </footer>
+</div>
+</body>
+</html>
